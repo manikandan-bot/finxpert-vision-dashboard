@@ -28,7 +28,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gray-50/50 flex">
       <Sidebar />
       
-      <div className="flex-1 ml-64">
+      <div className="flex-1 ml-64 w-full">
         <main className="py-8 px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div

@@ -55,8 +55,8 @@ export const Sidebar = () => {
   const pathname = location.pathname;
 
   return (
-    <aside className="flex h-screen w-64 flex-col border-r bg-sidebar fixed">
-      <div className="p-6">
+    <aside className="fixed top-0 left-0 h-screen w-64 flex-shrink-0 flex flex-col border-r bg-sidebar z-10 shadow-sm">
+      <div className="p-6 flex-1 overflow-y-auto">
         <div className="flex items-center gap-2 mb-10">
           <div className="h-8 w-8 rounded-full gradient-bg flex items-center justify-center">
             <span className="text-white font-semibold text-lg">F</span>
@@ -83,7 +83,7 @@ export const Sidebar = () => {
         </nav>
       </div>
       
-      <div className="mt-auto p-6">
+      <div className="p-6">
         <div className="rounded-xl bg-accent p-4">
           <h3 className="font-medium text-sm">Need Help?</h3>
           <p className="text-xs text-muted-foreground mt-1 mb-3">
