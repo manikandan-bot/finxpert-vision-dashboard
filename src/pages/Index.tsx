@@ -37,14 +37,14 @@ const Dashboard = () => {
               className="mb-8 flex justify-between items-center"
             >
               <div>
-                <h1 className="text-3xl font-bold">Your Financial Dashboard</h1>
+                <h1 className="text-3xl font-bold background-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">Your Financial Dashboard</h1>
                 <p className="text-muted-foreground">
                   Welcome back, Rahul! Here's your financial overview.
                 </p>
               </div>
-              <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm border border-gray-100">
-                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary font-medium">RS</span>
+              <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
+                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                  <span className="text-white font-medium">RS</span>
                 </div>
                 <div className="pr-2">
                   <p className="font-medium">Rahul Sharma</p>
@@ -76,37 +76,50 @@ const Dashboard = () => {
               </div>
             </section>
             
-            {/* Investment Section */}
+            {/* Investment and Credit Section */}
             <section className="mb-10">
               <SectionHeader 
-                title="Investment Portfolio"
-                description="Your monthly investment allocation"
+                title="Investment & Credit Portfolio"
+                description="Your investment allocation and credit health"
               />
               
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div className="lg:col-span-1">
-                  <InvestmentPieChart 
-                    data={investmentData.slice(0, 4)} 
-                    totalInvestment={totalInvestment} 
-                  />
-                </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <InvestmentPieChart 
+                  data={investmentData.slice(0, 4)} 
+                  totalInvestment={totalInvestment} 
+                />
                 
-                <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {investmentData.map((investment, i) => (
-                    <InvestmentCard
-                      key={investment.id}
-                      name={investment.name}
-                      description={investment.description}
-                      category={investment.category}
-                      risk={investment.risk}
-                      return={investment.return}
-                      value={investment.value}
-                      amount={investment.amount}
-                      icon={investment.icon}
-                      delay={i}
-                    />
-                  ))}
-                </div>
+                <CreditScore
+                  score={creditData.score}
+                  maxScore={creditData.maxScore}
+                  level={creditData.level}
+                  suggestions={creditData.suggestions}
+                />
+              </div>
+            </section>
+            
+            {/* Investment Cards Section */}
+            <section className="mb-10">
+              <SectionHeader 
+                title="Investment Details"
+                description="Your current investment portfolio breakdown"
+              />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {investmentData.map((investment, i) => (
+                  <InvestmentCard
+                    key={investment.id}
+                    name={investment.name}
+                    description={investment.description}
+                    category={investment.category}
+                    risk={investment.risk}
+                    return={investment.return}
+                    value={investment.value}
+                    amount={investment.amount}
+                    icon={investment.icon}
+                    delay={i}
+                  />
+                ))}
               </div>
             </section>
             
@@ -141,12 +154,16 @@ const Dashboard = () => {
                   title="Learning Center"
                   description="Enhance your financial knowledge"
                 />
-                <button className="text-primary font-medium hover:underline">
+                <button className="text-primary font-medium hover:underline flex items-center gap-1">
                   View All Courses
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right">
+                    <path d="M5 12h14"/>
+                    <path d="m12 5 7 7-7 7"/>
+                  </svg>
                 </button>
               </div>
               
-              <div className="flex space-x-6 overflow-x-auto pb-4">
+              <div className="flex space-x-6 overflow-x-auto pb-4 scrollbar-none">
                 {educationData.map((module, i) => (
                   <EducationCard
                     key={module.id}
@@ -160,21 +177,6 @@ const Dashboard = () => {
                   />
                 ))}
               </div>
-            </section>
-            
-            {/* Credit Section */}
-            <section className="mb-10">
-              <SectionHeader 
-                title="Credit Optimizer"
-                description="Monitor and improve your credit score"
-              />
-              
-              <CreditScore
-                score={creditData.score}
-                maxScore={creditData.maxScore}
-                level={creditData.level}
-                suggestions={creditData.suggestions}
-              />
             </section>
           </div>
         </main>

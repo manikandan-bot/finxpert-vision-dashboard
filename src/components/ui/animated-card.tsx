@@ -1,13 +1,12 @@
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import React from "react";
 
-interface AnimatedCardProps extends React.HTMLAttributes<HTMLDivElement> {
+type AnimatedCardProps = HTMLMotionProps<"div"> & {
   delay?: number;
   children: React.ReactNode;
-  className?: string;
-}
+};
 
 export function AnimatedCard({
   delay = 0,

@@ -93,6 +93,18 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
+  
+  /* Adding subtle 3D depth to elements */
+  .card, .stat-card, .section-header {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .shadow-3d {
+    box-shadow: 
+      0 5px 15px -5px rgba(0, 0, 0, 0.1), 
+      0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  }
 }
 
 @layer components {
@@ -122,5 +134,29 @@
   
   .nav-item-active {
     @apply bg-accent text-primary font-medium;
+  }
+  
+  .glass-morphism {
+    @apply backdrop-blur-md bg-white/90 border border-white/20 shadow-sm;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-br from-indigo-600 to-purple-600 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .background-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 }
