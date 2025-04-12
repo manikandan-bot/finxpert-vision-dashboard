@@ -1,7 +1,7 @@
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import React from "react";
+import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 
 interface CreditScoreProps {
@@ -63,7 +63,7 @@ export const CreditScore = ({
                   <Cell 
                     key={`cell-${index}`} 
                     fill={COLORS[index]}
-                    cornerRadius={index === 0 ? 10 : 0}
+                    // Remove the cornerRadius property as it's not supported
                   />
                 ))}
               </Pie>

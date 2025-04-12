@@ -1,7 +1,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Icon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import React from "react";
 
 interface InvestmentCardProps {
@@ -12,7 +12,7 @@ interface InvestmentCardProps {
   return: string;
   value: number;
   amount: number;
-  icon: Icon;
+  icon: LucideIcon;
   delay?: number;
 }
 

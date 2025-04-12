@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Icon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import React from "react";
 
 interface EducationCardProps {
@@ -9,7 +9,7 @@ interface EducationCardProps {
   tag: string;
   type: string;
   duration: string;
-  icon: Icon;
+  icon: LucideIcon;
   delay?: number;
 }
 

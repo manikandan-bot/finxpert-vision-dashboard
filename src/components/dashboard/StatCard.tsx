@@ -1,13 +1,13 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Icon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import React from "react";
 
 interface StatCardProps {
   title: string;
   value: string;
-  icon: Icon;
+  icon: LucideIcon;
   change?: string;
   trend?: "up" | "down";
   color?: string;

@@ -1,7 +1,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Icon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import React from "react";
 
 interface GoalCardProps {
@@ -9,7 +9,7 @@ interface GoalCardProps {
   saved: number;
   target: number;
   progress: number;
-  icon: Icon;
+  icon: LucideIcon;
   color: string;
   date: string;
   delay?: number;
